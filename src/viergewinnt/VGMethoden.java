@@ -33,20 +33,24 @@ public class VGMethoden {
 
     public static void draw(int[][] f) {
         out.println();
-        out.printf(" %d | %d | %d | %d | %d | %d | %d%n", 
-        f[0][5], f[1][5], f[2][5], f[3][5], f[4][5], f[5][5], f[6][5]);
-        out.printf(" %d | %d | %d | %d | %d | %d | %d%n",
-        f[0][4], f[1][4], f[2][4], f[3][4], f[4][4], f[5][4], f[6][4]);
-        out.printf(" %d | %d | %d | %d | %d | %d | %d%n", 
-        f[0][3], f[1][3], f[2][3], f[3][3], f[4][3], f[5][3], f[6][3]);
-        out.printf(" %d | %d | %d | %d | %d | %d | %d%n", 
-        f[0][2], f[1][2], f[2][2], f[3][2], f[4][2], f[5][2], f[6][2]);
-        out.printf(" %d | %d | %d | %d | %d | %d | %d%n", 
-        f[0][1], f[1][1], f[2][1], f[3][1], f[4][1], f[5][1], f[6][1]);
-        out.printf(" %d | %d | %d | %d | %d | %d | %d%n", 
-        f[0][0], f[1][0], f[2][0], f[3][0], f[4][0], f[5][0], f[6][0]);
-        out.println("---------------------------");
-        out.println(" 1   2   3   4   5   6   7");
+        for(int i = 5; i >= 0; i--){
+        	out.print("|");
+        	for(int j = 0; j < 7; j++){
+        		out.print(" ");
+        		if(f[j][i] == 0){
+        			out.print(" ");
+        		} else if (f[j][i] == 1){
+        			out.print("X");
+        		} else if (f[j][i] == 2){
+        			out.print("O");
+        		}
+        		out.print(" |");
+        	}
+        	out.println();
+        	out.print("-----------------------------");
+        	out.println();
+        }
+        out.println("  1   2   3   4   5   6   7");
     }
 
     public static int getInput() {
@@ -56,7 +60,7 @@ public class VGMethoden {
     public static boolean setInput(int f[][]) {
 
         lastInput = input.nextInt();
-        if ((inputCheck(lastInput) == true) && (getHeight(f) + 1 <= 6)) {
+        if ((inputCheck(lastInput) == true) && (getHeight(f) <= 5)) {
             return true;
         } else {
             return false;
