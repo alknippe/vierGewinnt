@@ -5,8 +5,8 @@ package viergewinnt;
  * @author alknippe, stegbhar
  * @version 24.10.2012
  * Status:
- * Fehlerbehandlung für text Eingaben noch nicht implementiert
- * Momentan 7x7 Matrix wegen Fehler bei Spaltenüberlaufbehandlung
+ * ready for GUI
+ * 
  */
 
 public class vierGewinnt {
