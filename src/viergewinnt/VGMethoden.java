@@ -11,7 +11,10 @@ public class VGMethoden {
 	private static int round = 0;
 	private static int lastInput;
 	private static String test;
-
+	
+	/**
+	 * wechselt den aktuellen Spieler
+	 */
 	public static void setPlayer() {
 		if (player == 1) {
 			player = 2;
@@ -19,47 +22,43 @@ public class VGMethoden {
 			player = 1;
 		}
 	}
-
+	
+	/**
+	 * 
+	 * @return gibt den aktuellen Spieler zurueck
+	 */
 	public static int getPlayer() {
 		return player;
 	}
-
+	
+	/**
+	 * erhoeht Runde um 1
+	 */
 	public static void raiseRound() {
 		round++;
 	}
-
+	
+	/**
+	 * 
+	 * @return gibt die Aktuelle runde zurueck
+	 */
 	public static int getRound() {
 		return round;
 	}
 	
-	// Zeichnet das Feld mit den bisherigen Eingaben
-	public static void draw(int[][] f) {
-		out.println();
-		for (int i = 5; i >= 0; i--) {
-			out.print("|");
-			for (int j = 0; j < 7; j++) {
-				out.print(" ");
-				if (f[j][i] == 0) {
-					out.print(" ");
-				} else if (f[j][i] == 1) {
-					out.print("X");
-				} else if (f[j][i] == 2) {
-					out.print("O");
-				}
-				out.print(" |");
-			}
-			out.println();
-			out.print("-----------------------------");
-			out.println();
-		}
-		out.println("  1   2   3   4   5   6   7");
-	}
-
+	/**
+	 * 
+	 * @return letzte eingabe
+	 */
 	public static int getInput() {
 		return lastInput;
 	}
 
-	//Wartet auf eine Eingabe und Prüft ob diese korrekt ist
+	/**
+	 * Liesst einen Wert ein und prueft ob dieser korrekt ist
+	 * @param f
+	 * @return flase falls ungültig
+	 */
 	public static boolean setInput(int f[][]) {
 
 		test = input.next();
@@ -81,7 +80,11 @@ public class VGMethoden {
 		}
 	}
 
-	//Gibt die Höhe der Entsprechenden Spalte aus
+	/**
+	 * 
+	 * @param f
+	 * @return gibt Hoehe der aktullen Spalte zurueck
+	 */
 	public static int getHeight(int f[][]) {
 		int height = 0;
 		int t;
@@ -96,7 +99,37 @@ public class VGMethoden {
 		return height;
 	}
 
-	//Prüft ob die eingegebene Zahl zwischen 1 und 7 ist 
+	/**
+	 * Zeichnet die TUI
+	 * @param f
+	 */
+	public static void draw(int[][] f) {
+		out.println();
+		for (int i = 5; i >= 0; i--) {
+			out.print("|");
+			for (int j = 0; j < 7; j++) {
+				out.print(" ");
+				if (f[j][i] == 0) {
+					out.print(" ");
+				} else if (f[j][i] == 1) {
+					out.print("X");
+				} else if (f[j][i] == 2) {
+					out.print("O");
+				}
+				out.print(" |");
+			}
+			out.println();
+			out.print("-----------------------------");
+			out.println();
+		}
+		out.println("  1   2   3   4   5   6   7");
+	}
+	
+	/**
+	 * Prüft ob die eingegebene Zahl zwischen 1 und 7 ist 
+	 * @param i
+	 * @return true falls korrekte zahl
+	 */
 	public static boolean inputCheck(int i) {
 		if (i > 7 || i < 1) {
 			return false;
@@ -105,7 +138,11 @@ public class VGMethoden {
 		}
 	}
 
-	//Prüft ob ein Spieler 4 in einer Reihe hat
+	/**
+	 * Prueft ob ein Spieler gewonne hat
+	 * @param f
+	 * @return
+	 */
 	public static boolean winCheck(int f[][]) {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 4; j++) {

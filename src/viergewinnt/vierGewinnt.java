@@ -11,6 +11,8 @@ package viergewinnt;
 
 public class vierGewinnt {
 	public static void main(String[] args) {
+		
+		VierGUIwinnt.starter();
 
 		int[][] field = new int[7][7];
 		VGMethoden.draw(field);
@@ -42,5 +44,4 @@ public class vierGewinnt {
 				VGMethoden.getPlayer(), VGMethoden.getRound());
 
 	}
-
 }
